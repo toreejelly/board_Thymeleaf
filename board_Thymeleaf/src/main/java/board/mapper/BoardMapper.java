@@ -12,4 +12,7 @@ public  interface BoardMapper {
 	//목록조회
 	public List<BoardVO> getList();
 	
+	//글쓰기
+	public void contentWrite(BoardVO boardVO);
+
 }

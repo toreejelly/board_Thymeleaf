@@ -46,6 +46,9 @@ dependencies {
 	// oracle DB
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	
+	//html페이지에서 <script>사용 시 필요함 -> 아닌디?
+	//implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+	
 }
 
 tasks.named('test') {
