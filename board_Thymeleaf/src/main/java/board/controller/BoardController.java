@@ -1,6 +1,7 @@
 package board.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,10 +56,11 @@ public class BoardController {
 			String strboardId = Integer.toString(boardId);
 			log.info("boardId :" + boardId);//strboardId물어보면 안되나?
 			
-			
+			entity = new ResponseEntity<String>(strboardId, HttpStatus.OK);
 			
 		}catch(Exception e) {
-			
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		
 		return entity;
