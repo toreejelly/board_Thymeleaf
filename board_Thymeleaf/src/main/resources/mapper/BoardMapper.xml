@@ -44,7 +44,18 @@
 		FROM BOARD
 	</select>
 	
-	
+	<!-- 글 조회 -->
+	<select id="getContent" resultType="board.vo.BoardVO" parameterType="int">
+		SELECT
+			BOARD_ID AS BOARDID
+			, TITLE
+			, TEXT
+			, BOARD_DATE AS BOARDDATE
+			, HIT
+			, MEMBER_ID AS MEMBERID
+		FROM BOARD
+		WHERE BOARD_ID = #{boardId}
+	</select>
 	
 	
 

@@ -36,4 +36,10 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.boardId();
 	}
 	
+	//글 조회
+	@Override	
+	public BoardVO getContent(int boardId) {
+		return mapper.getContent(boardId);
+	}
+	
 }//end

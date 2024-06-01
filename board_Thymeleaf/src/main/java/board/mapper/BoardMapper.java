@@ -17,5 +17,8 @@ public  interface BoardMapper {
 	
 	//최신 글 번호
 	public int boardId();
+	
+	//글 조회
+	public BoardVO getContent(int boardId);
 
 }

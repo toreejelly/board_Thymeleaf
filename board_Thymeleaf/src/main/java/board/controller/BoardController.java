@@ -77,6 +77,10 @@ public class BoardController {
 		//변수 설정하고 VO에서 가져오기만 하면 된다
 		int boardId = boardVO.getBoardId();
 		log.info("boardId :" + boardId);
+		
+		//저장된 boardId에 작성된 글 가져오기 
+		model.addAttribute("content", boardService.getContent(boardId));
+		
 		//결국 return은 글조회 페이지로 이동
 		return "contentViewForm";
 	}
