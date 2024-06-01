@@ -67,7 +67,20 @@ public class BoardController {
 	}
 	
 	
-
+	//글 조회. 글 조회 페이지
+	@GetMapping("/board/{boardId}")
+	public String contentViewForm(Model model, BoardVO boardVO) {
+		log.info("BoardController contentViewForm() boardVO");
+		log.info("boardVO : " + boardVO);
+		//boardId로 저장된 내용 가져오기
+		//result 값에 저장된 boardId를 넘겨주기 때문에 
+		//변수 설정하고 VO에서 가져오기만 하면 된다
+		int boardId = boardVO.getBoardId();
+		log.info("boardId :" + boardId);
+		//결국 return은 글조회 페이지로 이동
+		return "contentViewForm";
+	}
+	
 	
 
 }
