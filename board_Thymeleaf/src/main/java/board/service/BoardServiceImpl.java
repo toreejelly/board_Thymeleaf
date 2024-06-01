@@ -30,4 +30,10 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 	
+	//최신 글 번호
+	@Override	
+	public int boardId() {
+		return mapper.boardId();
+	}
+	
 }//end

@@ -51,6 +51,12 @@ public class BoardController {
 			//글쓰기
 			boardService.contentWrite(boardVO);
 			//최신 글 번호
+			int boardId = boardService.boardId();
+			String strboardId = Integer.toString(boardId);
+			log.info("boardId :" + boardId);//strboardId물어보면 안되나?
+			
+			
+			
 		}catch(Exception e) {
 			
 		}

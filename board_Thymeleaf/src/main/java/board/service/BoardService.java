@@ -12,4 +12,7 @@ public interface BoardService {
 	
 	//글쓰기
 	public void contentWrite(BoardVO boardVO);
+	
+	//최신 글 번호
+	public int boardId();
 }

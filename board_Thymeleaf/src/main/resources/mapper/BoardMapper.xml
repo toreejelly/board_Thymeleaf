@@ -37,4 +37,17 @@
 			)
 	</insert>
 	
+	<!-- 최신 글 번호 -->
+	<select id="boardId" resultType="int">
+		SELECT 
+			MAX(BOARD_ID)
+		FROM BOARD
+	</select>
+	
+	
+	
+	
+
+	
+	
 </mapper>
