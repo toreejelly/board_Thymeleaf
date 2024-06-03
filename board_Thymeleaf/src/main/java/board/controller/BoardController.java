@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -113,6 +114,30 @@ public class BoardController {
 		try {
 			//수정된 글 저장
 			boardService.contentModify(boardVO);			
+			
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	
+	
+	//글 삭제
+	@DeleteMapping("/board/{boardId}")
+	public ResponseEntity<String> contentDelete(@RequestBody BoardVO boardVO){
+		log.info("BoardController contentDelete() ");
+		log.info("boardVO : " + boardVO);
+		
+		ResponseEntity<String> entity = null;
+		int boardId = boardVO.getBoardId();
+		
+		try {
+			//수정된 글 저장
+			boardService.contentDelete(boardVO);			
 			
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 			

@@ -46,4 +46,11 @@ public class BoardServiceImpl implements BoardService {
 	public void contentModify(BoardVO boardVO) {
 		mapper.contentModify(boardVO);
 	}
+	
+	//글 삭제
+	public void contentDelete(BoardVO boardVO) {
+		mapper.contentDelete(boardVO);
+	}
+	
+	
 }//end
