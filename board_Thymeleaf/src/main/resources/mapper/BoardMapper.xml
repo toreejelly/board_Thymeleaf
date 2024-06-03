@@ -18,7 +18,7 @@
 	
 	
 	<!-- 글쓰기 -->
-	<insert id="contentWrite" parameterType="board.vo.boardVO">
+	<insert id="contentWrite" parameterType="board.vo.BoardVO">
 		INSERT INTO BOARD
 			(
 			BOARD_ID
@@ -29,7 +29,7 @@
 			)
 		VALUES
 			(
-			(SELECT NVL(MAX(BOARD_ID)+1),0) FROM BOARD
+			(SELECT NVL(MAX(BOARD_ID)+1, 0) FROM BOARD)
 			,#{title}
 			,#{text}
 			,SYSDATE
