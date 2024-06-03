@@ -42,4 +42,8 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.getContent(boardId);
 	}
 	
+	//글 수정 저장
+	public void contentModify(BoardVO boardVO) {
+		mapper.contentModify(boardVO);
+	}
 }//end

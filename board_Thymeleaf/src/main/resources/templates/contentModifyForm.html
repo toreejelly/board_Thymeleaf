@@ -8,6 +8,44 @@
 <meta charset="UTF-8">
 <title>글 수정 페이지</title>
 
+<script type="text/javascript">
+	
+	//글 수정 저장
+	function contentModify(){
+		
+		let boardId = $("#boardId").val();  //게시판 순번
+		let title = $("#title").val();		//제목
+		let text = $("#text").val();		//내용
+		
+		var data  = {
+			boardId : boardId
+			,title : title
+			,text : text
+		};//contentModify() end
+		
+		console.log("data" + data);
+
+		$.ajax({
+			type : "PUT"
+			,url : "/board/"+boardId
+			,cache : false
+			,contentType : 'application/json; charset=utf-8'
+			,data : JSON.stringify(data)
+			,success : function(result){
+				if(result == "SUCCESS"){
+					alert("수정되었습니다.");
+					location.href = "/board/"+boardId;
+				}//if end
+			}
+			,error : function(e){
+				alert("수정 실패했습니다.");
+				console.log(e);
+			}
+			
+		})//ajax end
+	}
+</script>
+
 </head>
 <body>
 

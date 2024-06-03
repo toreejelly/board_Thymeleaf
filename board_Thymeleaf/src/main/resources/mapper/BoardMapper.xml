@@ -58,6 +58,13 @@
 	</select>
 	
 	
+	<!-- 글 수정 저장 -->
+	<update id="contentModify" parameterType="board.vo.BoardVO">
+		UPDATE BOARD 
+		SET TITLE = #{title}
+			,TEXT = #{text}
+		WHERE BOARD_ID = #{boardId}
+	</update>
 
 	
 	

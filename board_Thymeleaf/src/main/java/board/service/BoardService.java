@@ -18,4 +18,7 @@ public interface BoardService {
 	
 	//글 조회
 	public BoardVO getContent(int boardId);
+	
+	//글 수정 저장
+	public void contentModify(BoardVO boardVO);
 }

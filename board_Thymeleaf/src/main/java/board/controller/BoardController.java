@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import board.service.BoardServiceImpl;
@@ -67,7 +68,7 @@ public class BoardController {
 	}
 	
 	
-	//글 조회. 글 조회 페이지
+	//글 조회. 글 조회 페이지. 수정된 글 저장후 
 	@GetMapping("/board/{boardId}")
 	public String contentViewForm(Model model, BoardVO boardVO) {
 		log.info("BoardController contentViewForm() boardVO");
@@ -99,4 +100,28 @@ public class BoardController {
 		
 		return "contentModifyForm";
 	}
+	
+	
+	//글 수정 저장
+	@PutMapping("/board/{boardId}")
+	public ResponseEntity<String> contentModify(@RequestBody BoardVO boardVO){
+		log.info("BoardController contentModify ");
+		log.info("boardVO : " + boardVO);
+		
+		ResponseEntity<String> entity = null;
+		
+		try {
+			//수정된 글 저장
+			boardService.contentModify(boardVO);			
+			
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+		
 }
